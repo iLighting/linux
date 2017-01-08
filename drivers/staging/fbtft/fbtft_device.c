@@ -1189,6 +1189,26 @@ static struct fbtft_device_display displays[] = {
 			}
 		}
 	}, {
+		// oview32t
+		.name = "oview32t",
+		.spi = &(struct spi_board_info) {
+			.modalias = "fb_ili9341",
+			.max_speed_hz = 64000000,
+			.mode = SPI_MODE_0,
+			.platform_data = &(struct fbtft_platform_data) {
+				.display = {
+					.buswidth = 8,
+					.blacklight = 1,
+				},
+				.gpios = (const struct fbtft_gpio []) {
+					{ "reset", 24 },
+					{ "dc", 23 },
+					{ "led", 25 },
+					{},
+				},
+			}
+		}
+	} ,{
 		/* This should be the last item.
 		   Used with the custom argument */
 		.name = "",
